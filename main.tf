@@ -16,7 +16,7 @@ terraform {
     }
 }
 
-# Configure the Microsoft Azure Provider - updated 1.4
+# Configure the Microsoft Azure Provider - updated 1.5
 provider "azurerm" {
   features {}
 }
