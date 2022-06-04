@@ -7,7 +7,16 @@ terraform {
   }
 }
 
-# Configure the Microsoft Azure Provider - updated 1.0
+terraform {
+    backend "azurerm" {
+        resource_group_name  = "tf_rg_blobstore"
+        storage_account_name = "tfstorageeaccnt1"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+    }
+}
+
+# Configure the Microsoft Azure Provider - updated 1.4
 provider "azurerm" {
   features {}
 }
@@ -17,9 +26,9 @@ resource "azurerm_resource_group" "tf_test" {
   name     = "tfmainrg"
   location = "centralindia"
 }
-# Create a resource group for container and a container
+
 resource "azurerm_container_group" "tfcg_test" {
-  name = "weatherapis"
+  name = "weatherapi"
   location = azurerm_resource_group.tf_test.location
   resource_group_name = azurerm_resource_group.tf_test.name
 
@@ -29,8 +38,8 @@ resource "azurerm_container_group" "tfcg_test" {
 
   
   container {
-      name = "weatherapis"  
-      image = "aqeelansari/weatherapis"
+      name = "weatherapi"  
+      image = "aqeelansari/weatherapi"
        cpu = "0.5"
        memory = "1.5"  
 
