@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'az-docker-service-conn'
-        repository: 'aqeelansari/weatherapi'
+        repository: 'aqeelansari/weatherapis'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |

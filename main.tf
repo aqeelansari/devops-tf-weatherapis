@@ -16,7 +16,7 @@ terraform {
     }
 }
 
-# Configure the Microsoft Azure Provider - updated 1.5
+# Configure the Microsoft Azure Provider - updated 1.6
 provider "azurerm" {
   features {}
 }
@@ -28,7 +28,7 @@ resource "azurerm_resource_group" "tf_test" {
 }
 
 resource "azurerm_container_group" "tfcg_test" {
-  name = "weatherapi"
+  name = "weatherapis"
   location = azurerm_resource_group.tf_test.location
   resource_group_name = azurerm_resource_group.tf_test.name
 
@@ -38,8 +38,8 @@ resource "azurerm_container_group" "tfcg_test" {
 
   
   container {
-      name = "weatherapi"  
-      image = "aqeelansari/weatherapi"
+      name = "weatherapis"  
+      image = "aqeelansari/weatherapis"
        cpu = "0.5"
        memory = "1.5"  
 
