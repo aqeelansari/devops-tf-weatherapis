@@ -16,6 +16,10 @@ terraform {
     }
 }
 
+variable "imagebuild" {
+  type = string
+  description = "Latest image build"
+}
 # Configure the Microsoft Azure Provider - updated 1.6
 provider "azurerm" {
   features {}
@@ -39,7 +43,7 @@ resource "azurerm_container_group" "tfcg_test" {
   
   container {
       name = "weatherapis"  
-      image = "aqeelansari/weatherapis"
+      image = "aqeelansari/weatherapis:${var.imagebuild}"
        cpu = "0.5"
        memory = "1.5"  
 
